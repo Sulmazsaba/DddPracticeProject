@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeProject.Logic
 {
-    public sealed class Money
+    public sealed class Money : ValueObject<Money>
     {
         public int OneCentCount { get; private set; }
         public int TenCentCount { get; private set; }
@@ -41,5 +41,28 @@ namespace PracticeProject.Logic
 
         }
 
+        protected override bool EqualScore(Money other)
+        {
+            return other.OneCentCount == OneCentCount &&
+                other.TenCentCount == TenCentCount &&
+                other.TwentyDollorCount == TwentyDollorCount &&
+                other.QuarterCount == QuarterCount &&
+                other.OneDollorCount == OneDollorCount &&
+                other.FiveDollorCount == FiveDollorCount;
+        }
+
+        protected override int GetHashCodeScore()
+        {
+            unchecked
+            {
+                int hashCode = OneCentCount;
+                hashCode = (hashCode *397) ^ TenCentCount;
+                hashCode = (hashCode *397) ^ QuarterCount;
+                hashCode = (hashCode *397) ^ OneDollorCount;
+                hashCode = (hashCode *397) ^ FiveDollorCount;
+                hashCode = (hashCode *397) ^ TwentyDollorCount;
+                return hashCode;
+            }
+        }
     }
 }
