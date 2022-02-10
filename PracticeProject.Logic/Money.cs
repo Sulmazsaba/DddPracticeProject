@@ -17,6 +17,20 @@ namespace PracticeProject.Logic
 
         public Money(int oneCentCount, int tenCentCount, int quarterCount, int oneDollorCount, int fiveDollorCount, int twentyDollorCount)
         {
+            if (oneCentCount < 0)
+                throw new InvalidOperationException();
+            if (tenCentCount < 0)
+                throw new InvalidOperationException();
+            if(quarterCount < 0)
+                throw new InvalidOperationException();
+            if(fiveDollorCount < 0)
+                throw new InvalidOperationException();
+            if(twentyDollorCount < 0)
+                throw new InvalidOperationException();
+            if(oneDollorCount < 0)
+                throw new InvalidOperationException();
+
+
             OneCentCount = oneCentCount;
             TenCentCount = tenCentCount;
             QuarterCount = quarterCount;
