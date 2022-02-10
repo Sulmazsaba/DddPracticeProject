@@ -11,7 +11,6 @@ namespace PracticeProject.Logic
         public int OneCentCount { get; private set; }
         public int TenCentCount { get; private set; }
         public int QuarterCount { get; private set; }
-
         public int OneDollorCount { get; private set; }
         public int FiveDollorCount { get; private set; }
         public int TwentyDollorCount { get; private set; }
