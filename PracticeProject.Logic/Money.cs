@@ -8,6 +8,14 @@ namespace PracticeProject.Logic
 {
     public sealed class Money : ValueObject<Money>
     {
+        public static readonly Money None = new Money(0, 0, 0, 0, 0, 0);
+        public static readonly Money Cent = new Money(1, 0, 0, 0, 0, 0);
+        public static readonly Money TenCent = new Money(0, 1, 0, 0, 0, 0);
+        public static readonly Money Quarter = new Money(0, 0, 1, 0, 0, 0);
+        public static readonly Money Dollor = new Money(0, 0, 0, 1, 0, 0);
+        public static readonly Money FiveDollor = new Money(0, 0, 0, 0, 1, 0);
+        public static readonly Money TwentyDollor = new Money(0, 0, 0, 0, 0, 1);
+
         public int OneCentCount { get; }
         public int TenCentCount { get; }
         public int QuarterCount { get; }
@@ -20,7 +28,6 @@ namespace PracticeProject.Logic
                       OneDollorCount +
                       FiveDollorCount * 5 +
                       TwentyDollorCount * 20;
-
 
         public Money(int oneCentCount, int tenCentCount, int quarterCount, int oneDollorCount, int fiveDollorCount, int twentyDollorCount)
         {
